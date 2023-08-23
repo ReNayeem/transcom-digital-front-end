@@ -1,0 +1,140 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  firstName String
+  lastName  String
+  password  String
+  email     String   @unique
+  phone     String?
+  image     String?
+  address   String?
+  role      Role     @default(GENERAL)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum Role {
+  GENERAL
+  CUSTOMER
+  EDITOR
+  ADMIN
+}
+
+model Banner {
+  id          String   @id @default(uuid())
+  name        String?
+  description String?
+  image       String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Category {
+  id        String   @id @default(uuid())
+  name      String
+  image     String?
+  brands    Brand[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Brand {
+  id         String    @id @default(uuid())
+  name       String
+  image      String?
+  products   Product[]
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  Category   Category? @relation(fields: [categoryId], references: [id])
+  categoryId String?
+}
+
+model Product {
+  id         String   @id @default(uuid())
+  name       String
+  model      String
+  salePrice  Int
+  offerPrice Int
+  images     String[]
+  thumbnail  String
+  details    Details? @relation(fields: [detailsId], references: [id])
+  reviews    Review[]
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  Order      Order?   @relation(fields: [orderId], references: [id])
+  orderId    String?
+  Brand      Brand?   @relation(fields: [brandId], references: [id])
+  brandId    String?
+  detailsId  String?
+}
+
+model Details {
+  id            String    @id @default(uuid())
+  colors        String[]
+  emiDuration   Int?
+  emiPerMonth   Int?
+  exchangeOffer Int?
+  features      String[]
+  warrantyType  String?
+  warrantyOn    String[]
+  Product       Product[]
+}
+
+model Review {
+  id        String   @id @default(uuid())
+  orderId   String
+  userId    String
+  rating    Int
+  comment   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Product   Product? @relation(fields: [productId], references: [id])
+  productId String?
+}
+
+model Order {
+  id             String       @id @default(uuid())
+  userId         String
+  products       Product[]
+  subTotal       Int
+  total          Int
+  deliveryCharge Int
+  shippingInfo   ShippingInfo @relation(fields: [shippingInfoId], references: [id])
+  paymentStatus  Status       @default(PENDING)
+  paymentId      String
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+  shippingInfoId String
+}
+
+model ShippingInfo {
+  id          String  @id @default(uuid())
+  label       Label   @default(HOME)
+  division    String
+  district    String
+  thana       String
+  postal      String
+  landMark    String
+  roadNumber  String
+  houseNumber String
+  flatNumber  String
+  Order       Order[]
+}
+
+enum Label {
+  HOME
+  OFFICE
+}
+
+enum Status {
+  PENDING
+  COMPLETED
+}

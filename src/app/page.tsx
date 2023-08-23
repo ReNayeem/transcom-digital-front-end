@@ -1,95 +1,125 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import SeeAllBtn from "@/components/SeeAllBtn";
+import About from "./About";
+import { getBrands, getCategories, getDeals, getSelling } from "./home-data";
+import Image from "next/image";
+import ProductCardview from "@/components/ProductCardview";
+import prisma from "../../prisma/prisma";
+import BannerCarousel from "./BannerCarousel";
 
-export default function Home() {
+export const revalidate = 30;
+
+export default async function Home() {
+  const banners = await prisma.banner.findMany();
+  const deals = await getDeals();
+  const selling = await getSelling();
+  const brands = await getBrands();
+  const categories = await getCategories();
+
+  // console.log(deals)
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+      <BannerCarousel banners={banners} />
+
+      <section id="best-deals" className="best-deals-area mb-60">
+        <div className="container">
+          <div className="row">
+            <div className="col-12">
+              <div className="section-title border-middle pb-3 mb-3">
+                <h3 className="d-inline fs-20 fw-bold align-middle">
+                  Best Deals
+                </h3>
+                <SeeAllBtn href="/best-deals" />
+              </div>
+            </div>
+            {deals.map((deal) => (
+              <ProductCardview key={deal.id} product={deal} />
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      <section id="shop-by-category" className="category-area mb-100">
+        <div className="container">
+          <div className="row">
+            <div className="col-12">
+              <div className="section-title border-middle pb-3 mb-3">
+                <h3 className="d-inline align-middle fs-20 fw-bold">
+                  Shop By Category
+                </h3>
+                <SeeAllBtn href="/shop-category" />
+              </div>
+            </div>
+          </div>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            {categories.map((category) => (
+              <div
+                className="category-item text-center p-3"
+                key={category.name}
+              >
+                {category.image && (
+                  <Image
+                    src={category.image}
+                    alt="category"
+                    className=" mx-auto"
+                    width={120}
+                    height={100}
+                  />
+                )}
+                <h4 className="fs-15">{category.name}</h4>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+      <section id="best-selling" className="best-deals-area mb-60">
+        <div className="container">
+          <div className="row">
+            <div className="col-12">
+              <div className="section-title border-middle pb-3 mb-3">
+                <h3 className="d-inline fs-20 fw-bold align-middle">
+                  Best Selling
+                </h3>
+                <SeeAllBtn href="/best-selling" />
+              </div>
+            </div>
+            {/* {selling.map((sell) => (
+              <ProductCardview key={sell.id} product={sell} />
+            ))} */}
+          </div>
+        </div>
+      </section>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
+      <section id="best-brands" className="brands-area mb-100">
+        <div className="container">
+          <div className="row">
+            <div className="col-12">
+              <div className="section-title border-middle pb-3 mb-3">
+                <h3 className="d-inline fs-20 fw-bold align-middle">
+                  Explore Brands
+                </h3>
+                <SeeAllBtn href="/brands" />
+              </div>
+            </div>
+            {brands.map((brand) => {
+              return (
+                <div key={brand.id} className="col-lg-2">
+                  <div className="brand-item text-center">
+                    {brand.image ? (
+                      <Image src={brand.image} alt="" width={72} height={80} />
+                    ) : (
+                      <p>No Image</p>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+      <About />
+    </>
+  );
 }
