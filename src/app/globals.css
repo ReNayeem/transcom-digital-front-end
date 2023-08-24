@@ -336,7 +336,7 @@ ul.slick-dots li button {
   content: "";
 }
 
-.product-overview .product-total > div {
+.product-overview .product-total>div {
   margin-right: 15px;
 }
 
@@ -391,4 +391,9 @@ ul.slick-dots li button {
 
 .delivery-type ul li:hover {
   background-color: #ffffff;
+}
+
+
+.display-height {
+  margin-top: 140px;
 }

@@ -13,7 +13,7 @@ export default function Provider({ children }: { children: React.ReactNode }) {
   return (
     <CartContext.Provider value={{ cart, setCart }}>
       <Header />
-      {children}
+      <div className="display-height">{children}</div>
       <Footer />
     </CartContext.Provider>
   );

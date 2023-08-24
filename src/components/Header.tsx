@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import HeaderProducts from "./HeaderProducts";
 import HeaderSearch from "./HeaderSearch";
 import { CartContext } from "@/contexts/useCart";
+import '../app/css/header.css'
 
 export default function Header() {
   const toggleMenu = () => { };
