@@ -12,3 +12,35 @@
         max-height: 328px;
     }
 }
+
+@media only screen and (max-width: 1199px) {
+    .banner-img {
+        max-width: 936px;
+        max-height: 275px;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .banner-img {
+        max-width: 696px;
+        max-height: 204px;
+    }
+
+    .custom-carousel {
+        padding-top: 3rem;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .banner-img {
+        max-width: 516px;
+        max-height: 151px;
+    }
+}
+
+@media only screen and (max-width: 577px) {
+    .banner-img {
+        max-width: 370px;
+        max-height: 109px;
+    }
+}

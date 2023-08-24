@@ -14,7 +14,7 @@ export default function BannerCarousel({ banners }: { banners: Banner[] }) {
         {banners.slice(0, 3).map((banner) => {
           return (
             <Carousel.Item key={banner.id}>
-              <div className="d-flex">
+              <div className="d-flex align-items-center justify-content-center">
                 <Image
                   src={banner.image}
                   className="banner-img"

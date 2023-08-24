@@ -397,3 +397,9 @@ ul.slick-dots li button {
 .display-height {
   margin-top: 140px;
 }
+
+@media only screen and (max-width: 991px) {
+  .display-height {
+    margin-top: 57px;
+  }
+}
