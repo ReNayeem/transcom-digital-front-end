@@ -77,38 +77,52 @@ function AppNavbar() {
                         style={{ minHeight: "100vh" }}
                         navbarScroll
                     >
-                        <Link href="/#upcoming">
+                        <Link href="">
                             <NavDropdown id="header2-dropdown" className="header2-border header2-dropdown" title="Products"
                                 show={show}
                                 onMouseEnter={showDropdown}
                                 onMouseLeave={hideDropdown}
                             >
-                                <p>sup</p>
+                                <h6 className="header2-dropdown-item">
+                                    TV
+                                </h6>
                             </NavDropdown>
                         </Link>
 
-                        <Link href="/#trending">
+                        <Link href="">
                             <h6
                                 className={
-                                    pathname == "/#trending"
-                                        ? "navigation-link navigation-link-active header2-dropdown header2-border"
-                                        : "navigation-link navigation-link-inactive header2-dropdown header2-border"
+                                    pathname == ""
+                                        ? "navigation-link navigation-link-active header2-dropdown header2-dropdown2 header2-border"
+                                        : "navigation-link navigation-link-inactive header2-dropdown header2-dropdown2 header2-border"
                                 }
                             >
-                                Trending
+                                Products
                             </h6>
                         </Link>
-                        <Link href="/pages/news">
+                        <Link href="">
                             <h6
                                 className={
-                                    pathname == "/pages/news"
-                                        ? "navigation-link navigation-link-active header2-dropdown header2-border"
-                                        : "navigation-link navigation-link-inactive header2-dropdown header2-border"
+                                    pathname == ""
+                                        ? "navigation-link navigation-link-active header2-dropdown header2-dropdown2 header2-border"
+                                        : "navigation-link navigation-link-inactive header2-dropdown header2-dropdown2 header2-border"
                                 }
                             >
-                                News
+                                Products
                             </h6>
                         </Link>
+                        <Link href="">
+                            <h6
+                                className={
+                                    pathname == ""
+                                        ? "navigation-link navigation-link-active header2-dropdown header2-dropdown2 header2-border"
+                                        : "navigation-link navigation-link-inactive header2-dropdown header2-dropdown2 header2-border"
+                                }
+                            >
+                                Products
+                            </h6>
+                        </Link>
+                        <Link href="" className="header2-border"></Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
