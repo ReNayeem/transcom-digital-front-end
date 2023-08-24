@@ -5,3 +5,10 @@
 .banner-img {
     border-radius: .5rem;
 }
+
+@media only screen and (max-width: 1399px) {
+    .banner-img {
+        max-width: 1116px;
+        max-height: 328px;
+    }
+}
