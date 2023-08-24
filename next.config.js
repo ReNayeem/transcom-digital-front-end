@@ -11,6 +11,11 @@ module.exports = {
             },
             {
                 protocol: "https",
+                hostname: "ibb.co",
+                // ...
+            },
+            {
+                protocol: "https",
                 hostname: "https://www.pexels.com/",
                 // ...
             },
