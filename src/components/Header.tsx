@@ -10,7 +10,7 @@ import HeaderSearch from "./HeaderSearch";
 import { CartContext } from "@/contexts/useCart";
 
 export default function Header() {
-  const toggleMenu = () => {};
+  const toggleMenu = () => { };
   const { cart } = useContext(CartContext);
   const router = useRouter();
 
@@ -23,7 +23,7 @@ export default function Header() {
   };
 
   return (
-    <header className="header-area">
+    <header className="header-area fixed-top">
       {/* search */}
       <div className="header-middle-area py-3 border-bottom">
         <div className="container">
