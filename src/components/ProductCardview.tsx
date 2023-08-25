@@ -6,6 +6,7 @@ import { numberSeparator } from "@/utils/number-separator";
 import React from "react";
 import Modal from "react-bootstrap/Modal";
 import Image from "next/image";
+import '../app/css/productCard.css'
 
 export default function ProductCardview({ product }: { product: any }) {
   const [show, setShow] = useState(false);
@@ -51,7 +52,7 @@ export default function ProductCardview({ product }: { product: any }) {
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
                   stroke="currentColor"
-                  className="w-6 h-6"
+                  className="w-6 h-6 card-icon"
                 >
                   <path
                     strokeLinecap="round"
@@ -59,7 +60,7 @@ export default function ProductCardview({ product }: { product: any }) {
                     d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z"
                   />
                 </svg>
-                EMI From {0} Tk/month
+                EMI From { } Tk/month
               </span>
               <br />
               <span>
@@ -69,7 +70,7 @@ export default function ProductCardview({ product }: { product: any }) {
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
                   stroke="currentColor"
-                  className="w-6 h-6"
+                  className="w-6 h-6 card-icon"
                 >
                   <path
                     strokeLinecap="round"
@@ -77,18 +78,19 @@ export default function ProductCardview({ product }: { product: any }) {
                     d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3"
                   />
                 </svg>
-                Get Exchange up to 0 Tk
+                Get Exchange up to { } Tk
               </span>
             </div>
-            <div className="product-price mb-2">
+            <div className="product-price mb-2 discounted-price-1">
               <span className="main-price fs-20 fw-bold">
                 &#2547;
                 {numberSeparator(product?.offerPrice)}
               </span>
-              <del className="discount-price text-danger fs-12">
+              <del className="discount-price text-danger fs-12 card-icon">
                 &#2547; {numberSeparator(product?.salePrice)}
               </del>
-              <span className="discount-total badge bg-danger">{20}%</span>
+              <span className="discounted-price-2"></span>
+              <span className="discount-total badge bg-danger card-icon">-{20}%</span>
             </div>
           </div>
           <div

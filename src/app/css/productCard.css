@@ -1,0 +1,11 @@
+.discounted-price-1 {
+    position: relative;
+}
+
+.discounted-price-2 {
+    position: absolute;
+    width: 60px;
+    border-bottom: 1px solid #dc3546;
+    right: 6rem;
+    top: 1.1rem;
+}
