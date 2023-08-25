@@ -1,5 +1,18 @@
+/* open sans font */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap');
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+}
+
 .header-area {
     background-color: white;
+}
+
+.header-icons {
+    margin-top: -.1rem;
+    margin-right: .2rem;
 }
 
 
