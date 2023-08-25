@@ -35,8 +35,9 @@ export default function ProductCardview({ product }: { product: any }) {
                 <Image
                   src={product?.thumbnail}
                   alt=""
-                  width={300}
-                  height={200}
+                  width={207.9}
+                  height={207.9}
+                  className="product-image-2"
                 />
                 <div className="product-badge position-absolute d-block rounded-circle top-0 end-0 text-center shadow bg-white text-danger">
                   <span className="fs-12">EMI</span>
@@ -82,12 +83,12 @@ export default function ProductCardview({ product }: { product: any }) {
               </span>
             </div>
             <div className="product-price mb-2 discounted-price-1">
-              <span className="main-price fs-20 fw-bold">
-                &#2547;
+              <span className="main-price fs-20 fw-bold card-icon">
+                <span className="card-icon">&#2547;</span>
                 {numberSeparator(product?.offerPrice)}
               </span>
-              <del className="discount-price text-danger fs-12 card-icon">
-                &#2547; {numberSeparator(product?.salePrice)}
+              <del className="discount-price text-danger fs-12 card-icon card-discount-price">
+                <span>&#2547;</span> <span>{numberSeparator(product?.salePrice)}</span>
               </del>
               <span className="discounted-price-2"></span>
               <span className="discount-total badge bg-danger card-icon">-{20}%</span>

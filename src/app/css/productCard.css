@@ -1,11 +1,123 @@
+.card-icon {
+    margin-right: .2rem;
+}
+
 .discounted-price-1 {
     position: relative;
 }
 
 .discounted-price-2 {
     position: absolute;
-    width: 60px;
+    width: 59px;
     border-bottom: 1px solid #dc3546;
-    right: 6rem;
+    right: 8.3rem;
     top: 1.1rem;
+}
+
+@media only screen and (max-width: 1399px) {
+    .discounted-price-2 {
+        right: 5.7rem;
+        top: 1.1rem;
+    }
+
+    .product-image-2 {
+        max-width: 176.4px;
+        max-height: 176.4px;
+    }
+}
+
+@media only screen and (max-width: 1199px) {
+    .discounted-price-2 {
+        right: 2.85rem;
+    }
+
+    .product-image-2 {
+        max-width: 144.9px;
+        max-height: 144.9px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .discounted-price-2 {
+        right: 4.75rem;
+    }
+
+    .product-image-2 {
+        max-width: 165.9px;
+        max-height: 165.9px;
+    }
+}
+
+@media only screen and (max-width: 557px) {
+    .discounted-price-2 {
+        right: 3.75rem;
+    }
+
+    .product-image-2 {
+        max-width: 134.4px;
+        max-height: 134.4px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .discounted-price-2 {
+        right: 3.05rem;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .discounted-price-2 {
+        right: 2.05rem;
+    }
+}
+
+@media only screen and (max-width: 446px) {
+    .discounted-price-2 {
+        right: 1.05rem;
+    }
+
+    .product-image-2 {
+        max-width: 114.4px;
+        max-height: 114.4px;
+    }
+}
+
+@media only screen and (max-width: 412px) {
+    .discounted-price-2 {
+        right: .05rem;
+    }
+}
+
+@media only screen and (max-width: 394px) {
+    .discounted-price-2 {
+        right: 6.7rem;
+        top: 2.4rem;
+    }
+
+    .card-discount-price {
+        display: flex;
+    }
+
+    .product-image-2 {
+        max-width: 104.4px;
+        max-height: 104.4px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .discounted-price-2 {
+        right: 6rem;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .discounted-price-2 {
+        right: 5.5rem;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .discounted-price-2 {
+        right: 3rem;
+    }
 }
