@@ -5,6 +5,7 @@ import Image from "next/image";
 import ProductCardview from "@/components/ProductCardview";
 import prisma from "../../prisma/prisma";
 import BannerCarousel from "./BannerCarousel";
+import './css/page.css'
 
 export const revalidate = 30;
 
@@ -25,7 +26,7 @@ export default async function Home() {
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <div className="section-title border-middle pb-3 mb-3">
+              <div className="section-title border-middle pb-3 mb-3 best-deals-header">
                 <h3 className="d-inline fs-20 fw-bold align-middle">
                   Best Deals
                 </h3>
